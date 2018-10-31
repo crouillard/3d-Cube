@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="cube.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>
+
+
+<div class="scene">
+  <div class="cube">
+          <div class="cube__face cube__face--front">front</div>
+          <div class="cube__face cube__face--back">back</div>
+          <div class="cube__face cube__face--right">right</div>
+          <div class="cube__face cube__face--left">left</div>
+          <div class="cube__face cube__face--top">top</div>
+          <div class="cube__face cube__face--bottom">bottom</div>
+        </div>
+      </div>
+      <p class="radio-group">
+        <label>
+          <input type="radio" name="rotate-cube-side" value="front" checked /> front
+        </label>
+        <label>
+          <input type="radio" name="rotate-cube-side" value="right" /> right
+        </label>
+        <label>
+          <input type="radio" name="rotate-cube-side" value="back" /> back
+        </label>
+        <label>
+          <input type="radio" name="rotate-cube-side" value="left" /> left
+        </label>
+        <label>
+          <input type="radio" name="rotate-cube-side" value="top" /> top
+        </label>
+        <label>
+          <input type="radio" name="rotate-cube-side" value="bottom" /> bottom
+        </label>
+      </p>
+      
+      <script>
+        var cube = document.querySelector('.cube');
+            var radioGroup = document.querySelector('.radio-group');
+            var currentClass = '';
+            
+            function changeSide() {
+              var checkedRadio = radioGroup.querySelector(':checked');
+              var showClass = 'show-' + checkedRadio.value;
+              if ( currentClass ) {
+                cube.classList.remove( currentClass );
+              }
+              cube.classList.add( showClass );
+              currentClass = showClass;
+            }
+            // set initial side
+            changeSide();
+            
+            radioGroup.addEventListener( 'change', changeSide );
+      </script>
